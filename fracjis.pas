@@ -1,0 +1,29 @@
+{
+ID:kjinxin1
+PROG:frac1
+LANG:PASCAL
+}
+var
+  n1,d1,n2,d2:longint;
+  n,i,j:longint;
+procedure try1(n1,d1,n2,d2:longint);
+var
+  i:longint;
+begin
+  if d1+d2>n then exit;
+  try1(n1,d1,n1+n2,d1+d2);
+  writeln(n1+n2,'/',d1+d2);
+  try1(n1+n2,d1+d2,n2,d2);
+end;
+begin
+  assign(input,'frac1.in');
+  assign(output,'frac1.out');
+  reset(input);
+  rewrite(output);
+  readln(n);
+  writeln(0,'/',1);
+  try1(0,1,1,1);
+  writeln(1,'/',1);
+  close(input);
+  close(output);
+end.
